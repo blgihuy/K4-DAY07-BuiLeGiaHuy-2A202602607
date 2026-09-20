@@ -1,0 +1,88 @@
+=== BENCHMARK RETRIEVAL — Chiến lược: SentenceChunker (max_sentences_per_chunk=3) ===
+Embedding backend: mock embeddings fallback
+Tổng số chunks đã nạp vào Store: 31 chunks từ 6 files
+
+--------------------------------------------------------------------------------
+Query #1: Người mua có thể gửi yêu cầu trả hàng/hoàn tiền trong thời hạn bao lâu đối với đơn hàng thông thường?
+Metadata filter: None
+Gold Answer: Đối với sản phẩm mua tại Shop thông thường hoặc Shop Yêu thích: Trong vòng 3 ngày kể từ khi đơn hàng được cập nhật trạng thái 'Giao hàng thành công'.
+Tài liệu mong đợi: return-refund-policy
+Top-3 chunks truy xuất được:
+  [1] ID=buyer-warranty-process#1 | doc_id=buyer-warranty-process | score=0.3021
+      Nội dung: - Phiếu bảo hành (nếu có) phải còn nguyên vẹn, không bị tẩy xóa, rách rời và có đầy đủ thông tin số seri/IMEI trùng khớp...
+  [2] ID=forbidden-return-items#3 | doc_id=forbidden-return-items | score=0.1696
+      Nội dung: - Sản phẩm bị vỡ, rò rỉ chất lỏng hoặc hư hỏng trong quá trình vận chuyển (bắt buộc phải có video quay lúc nhận kiện hàn...
+  [3] ID=buyer-refund-timeline#1 | doc_id=buyer-refund-timeline | score=0.1636
+      Nội dung: - Trường hợp đơn hàng bị người bán hủy hoặc sàn hủy tự động do người bán không giao hàng đúng hạn: Tiền hoàn được kích h...
+Agent Answer: [RAG Agent Response dựa trên Chỉ sử dụng các thông tin trong phần Ngữ cảnh dưới đây để trả lời câu hỏi. Không...]
+
+--------------------------------------------------------------------------------
+Query #2: Nếu thanh toán bằng thẻ tín dụng hoặc thẻ ghi nợ thì tiền hoàn được gửi về đâu và mất bao lâu?
+Metadata filter: None
+Gold Answer: Tiền được hoàn về hạn mức thẻ tín dụng hoặc thẻ ghi nợ quốc tế trong vòng 7 đến 14 ngày làm việc.
+Tài liệu mong đợi: buyer-refund-timeline
+Top-3 chunks truy xuất được:
+  [1] ID=seller-warranty-policy#2 | doc_id=seller-warranty-policy | score=0.3347
+      Nội dung: - Sau khi nhận được sản phẩm cần bảo hành do người mua gửi về, người bán phải kiểm tra và xác nhận tình trạng tiếp nhận ...
+  [2] ID=buyer-warranty-process#0 | doc_id=buyer-warranty-process | score=0.2077
+      Nội dung: # Quy trình yêu cầu bảo hành sản phẩm dành cho người mua  ## 1. Điều kiện áp dụng bảo hành Sản phẩm của người mua được t...
+  [3] ID=forbidden-return-items#4 | doc_id=forbidden-return-items | score=0.1192
+      Nội dung: - Nếu phát hiện kiện hàng bị rách nát, móp méo hoặc có dấu hiệu bị cạy mở trước, người mua có quyền từ chối nhận hàng ng...
+Agent Answer: [RAG Agent Response dựa trên Chỉ sử dụng các thông tin trong phần Ngữ cảnh dưới đây để trả lời câu hỏi. Không...]
+
+--------------------------------------------------------------------------------
+Query #3: Khi đã nhận hàng nhưng hàng bị lỗi, video mở kiện hàng cần đáp ứng những yêu cầu nào?
+Metadata filter: None
+Gold Answer: Video quay rõ 6 mặt kiện hàng và quá trình khui mở hộp, hình ảnh chụp cận cảnh chi tiết lỗi của sản phẩm, cùng hóa đơn hoặc phiếu giao hàng có mã vận đơn.
+Tài liệu mong đợi: return-refund-policy
+Top-3 chunks truy xuất được:
+  [1] ID=seller-warranty-policy#1 | doc_id=seller-warranty-policy | score=0.2377
+      Nội dung: - Không được từ chối tiếp nhận sản phẩm bảo hành nếu sản phẩm còn trong thời hạn bảo hành và đáp ứng đủ các điều kiện th...
+  [2] ID=seller-refund-dispute#1 | doc_id=seller-refund-dispute | score=0.2129
+      Nội dung: - Sản phẩm trả về bị hư hỏng nghiêm trọng do lỗi đóng gói bất cẩn từ phía người mua khi gửi trả. - Người mua gửi trả hàn...
+  [3] ID=forbidden-return-items#2 | doc_id=forbidden-return-items | score=0.2001
+      Nội dung: ## 2. Trường hợp ngoại lệ được xem xét Người mua vẫn có thể yêu cầu trả hàng đối với các sản phẩm thuộc danh mục trên nế...
+Agent Answer: [RAG Agent Response dựa trên Chỉ sử dụng các thông tin trong phần Ngữ cảnh dưới đây để trả lời câu hỏi. Không...]
+
+--------------------------------------------------------------------------------
+Query #4: Nếu Người mua chọn hình thức Tự sắp xếp để trả hàng thì Shopee hỗ trợ phí trả hàng như thế nào?
+Metadata filter: None
+Gold Answer: Người mua cần thanh toán trước phí trả hàng. Shopee sẽ hỗ trợ phí trả hàng tối đa 40.000 VNĐ trong vòng 3 - 5 ngày làm việc nếu khiếu nại được phán quyết là đúng.
+Tài liệu mong đợi: return-refund-policy
+Top-3 chunks truy xuất được:
+  [1] ID=return-refund-policy#5 | doc_id=return-refund-policy | score=0.2414
+      Nội dung: ## 4. Chi phí vận chuyển trả hàng - Miễn phí vận chuyển trả hàng 100% nếu người mua sử dụng dịch vụ trả hàng được tích h...
+  [2] ID=buyer-warranty-process#0 | doc_id=buyer-warranty-process | score=0.1961
+      Nội dung: # Quy trình yêu cầu bảo hành sản phẩm dành cho người mua  ## 1. Điều kiện áp dụng bảo hành Sản phẩm của người mua được t...
+  [3] ID=seller-warranty-policy#4 | doc_id=seller-warranty-policy | score=0.1551
+      Nội dung: Chế tài xử phạt vi phạm đối với người bán - Nếu người bán không phản hồi yêu cầu khiếu nại hoặc từ chối bảo hành không c...
+Agent Answer: [RAG Agent Response dựa trên Chỉ sử dụng các thông tin trong phần Ngữ cảnh dưới đây để trả lời câu hỏi. Không...]
+
+--------------------------------------------------------------------------------
+Query #5: Với tài liệu có audience=seller, Người bán nên làm gì khi nhận hàng hoàn nhưng sản phẩm bị hư hỏng hoặc không đúng sản phẩm của shop?
+Metadata filter: {'audience': 'seller'}
+Gold Answer: Người bán bấm nút 'Khiếu nại sàn' trên Kênh Người Bán trong vòng 3 ngày (72 giờ) kể từ khi nhận hàng hoàn, cung cấp video quay 6 mặt kiện hàng hoàn và quá trình mở kiện kiểm tra sản phẩm.
+Tài liệu mong đợi: seller-refund-dispute
+Top-3 chunks truy xuất được:
+  [1] ID=seller-refund-dispute#0 | doc_id=seller-refund-dispute | score=0.3264
+      Nội dung: # Quy định khiếu nại quyết định trả hàng hoàn tiền dành cho người bán  ## 1. Quyền khiếu nại của người bán Người bán có ...
+  [2] ID=seller-warranty-policy#0 | doc_id=seller-warranty-policy | score=0.1867
+      Nội dung: # Quy định thực hiện bảo hành và xử lý khiếu nại dành cho người bán  ## 1. Trách nhiệm bảo hành của người bán Người bán ...
+  [3] ID=seller-warranty-policy#2 | doc_id=seller-warranty-policy | score=0.1667
+      Nội dung: - Sau khi nhận được sản phẩm cần bảo hành do người mua gửi về, người bán phải kiểm tra và xác nhận tình trạng tiếp nhận ...
+Agent Answer: [RAG Agent Response dựa trên Chỉ sử dụng các thông tin trong phần Ngữ cảnh dưới đây để trả lời câu hỏi. Không...]
+
+================================================================================
+=== KIỂM CHỨNG A/B CHO QUERY CẦN FILTER (Query #5) ===
+Query: Với tài liệu có audience=seller, Người bán nên làm gì khi nhận hàng hoàn nhưng sản phẩm bị hư hỏng hoặc không đúng sản phẩm của shop?
+
+--- [LẦN 1: CÓ FILTER audience='seller'] ---
+  [1] ID=seller-refund-dispute#0 | audience=seller | score=0.3264
+  [2] ID=seller-warranty-policy#0 | audience=seller | score=0.1867
+  [3] ID=seller-warranty-policy#2 | audience=seller | score=0.1667
+
+--- [LẦN 2: KHÔNG CÓ FILTER (metadata_filter=None)] ---
+  [1] ID=seller-refund-dispute#0 | audience=seller | score=0.3264
+  [2] ID=seller-warranty-policy#0 | audience=seller | score=0.1867
+  [3] ID=seller-warranty-policy#2 | audience=seller | score=0.1667
+================================================================================
